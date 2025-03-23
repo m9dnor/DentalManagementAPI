@@ -1,0 +1,21 @@
+﻿@model DentalManagementAPI.Models.Treatment
+
+<h2>Edit Treatment</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="TreatmentID" /> <!-- Hidden field to store SubjectID -->
+
+    <div class="form-group">
+        <label asp-for="TreatmentName" class="control-label"></label>
+        <input asp-for="TreatmentName" class="form-control" />
+        <span asp-validation-for="TreatmentName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TreatmentSpecialist" class="control-label"></label>
+        <input asp-for="TreatmentSpecialist" class="form-control" />
+        <span asp-validation-for="TreatmentSpecialist" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

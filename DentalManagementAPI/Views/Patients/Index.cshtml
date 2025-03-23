@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DentalManagementAPI.Models.Patient>
+
+<h2>Patients List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Patient Name</th>
+            <th>DOB</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var patient in Model)
+        {
+            <tr>
+                <td>@patient.PatientName</td>
+                <td>@patient.DOB.ToShortDateString()</td>
+                <td>@patient.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@patient.PatientID">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@patient.PatientID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create">Add New Patient</a>
