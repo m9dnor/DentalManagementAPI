@@ -22,7 +22,7 @@ namespace DentalManagementAPI.Controllers
         public async Task<IActionResult> Index()
         {
             var patients = await _context.Patients.ToListAsync();
-            return View(patients); // Returns the list view of patients
+            return View(patients); // Returns the list view of patientsss
         }
 
         // GET: Patients/Details/5
