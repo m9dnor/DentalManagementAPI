@@ -28,12 +28,19 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Treatments" asp-action="Index">Treatment</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Info" asp-action="FAQ">FAQ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Info" asp-action="AboutUs">About Us</a>
+                        </li>
 
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <div class="d-flex flex-column min-vh-100">
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -45,6 +52,7 @@
             &copy; 2025 - DentalManagementAPI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

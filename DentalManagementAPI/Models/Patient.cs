@@ -18,5 +18,8 @@ namespace DentalManagementAPI.Models
         [EmailAddress]
         [MaxLength(100)]
         public string Email { get; set; }
+
+        [Required]
+        public DateTime AppointmentDate { get; set; }
     }
 }

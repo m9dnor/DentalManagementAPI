@@ -15,6 +15,10 @@ namespace DentalManagementAPI.Models
         [MaxLength(100)]
         public string TreatmentSpecialist { get; set; }
 
+        [Required]
+        public decimal TreatmentPrice { get; set; }
+
+
 
     }
 }

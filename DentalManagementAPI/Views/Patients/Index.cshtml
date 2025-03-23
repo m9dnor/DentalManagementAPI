@@ -1,29 +1,36 @@
 ﻿@model IEnumerable<DentalManagementAPI.Models.Patient>
 
-<h2>Patients List</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Patient Name</th>
-            <th>DOB</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var patient in Model)
-        {
-            <tr>
-                <td>@patient.PatientName</td>
-                <td>@patient.DOB.ToShortDateString()</td>
-                <td>@patient.Email</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@patient.PatientID">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="@patient.PatientID">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<h2 class="text-center mt-4">🦷 Patients List</h2>
 
-<a asp-action="Create">Add New Patient</a>
+<div class="container mt-3">
+    <table class="table table-striped table-hover text-center">
+        <thead class="table-dark">
+            <tr>
+                <th>Patient Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Appointment Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patient in Model)
+            {
+                <tr>
+                    <td>@patient.PatientName</td>
+                    <td>@patient.DOB.ToShortDateString()</td>
+                    <td>@patient.Email</td>
+                    <td>@patient.AppointmentDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@patient.PatientID" class="btn btn-sm btn-warning">✏️ Edit</a>
+                        <a asp-action="Delete" asp-route-id="@patient.PatientID" class="btn btn-sm btn-danger">🗑️ Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        <a asp-action="Create" class="btn btn-success btn-lg">➕ Add New Patient</a>
+    </div>
+</div>
