@@ -4,7 +4,7 @@ namespace DentalManagementAPI.Controllers
 {
     public class InfoController : Controller
     {
-        public IActionResult FAQ()
+        public IActionResult Guide()
         {
             return View();
         }

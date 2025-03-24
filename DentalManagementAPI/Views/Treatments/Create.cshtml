@@ -1,26 +1,112 @@
 ﻿@model DentalManagementAPI.Models.Treatment
 
-<h2>Create New Treatment</h2>
+<div class="container mt-5">
+    <div class="form-container">
+        <h2 class="text-center">➕ Register New Treatment</h2>
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="TreatmentName" class="form-label">Treatment Name</label>
+                <input asp-for="TreatmentName" class="form-control" placeholder="Enter treatment name..." />
+                <span asp-validation-for="TreatmentName" class="text-danger"></span>
+            </div>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="TreatmentName" class="control-label"></label>
-        <input asp-for="TreatmentName" class="form-control" />
-        <span asp-validation-for="TreatmentName" class="text-danger"></span>
+            <div class="form-group">
+                <label asp-for="TreatmentSpecialist" class="form-label">Specialist Name</label>
+                <input asp-for="TreatmentSpecialist" class="form-control" placeholder="Enter specialist's name..." />
+                <span asp-validation-for="TreatmentSpecialist" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TreatmentPrice" class="form-label">Treatment Price ($)</label>
+                <input asp-for="TreatmentPrice" class="form-control" type="number" step="0.01" placeholder="Enter price..." />
+                <span asp-validation-for="TreatmentPrice" class="text-danger"></span>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">✅ Register Treatment</button>
+                <a asp-action="Index" class="btn btn-secondary">❌ Cancel</a>
+            </div>
+        </form>
     </div>
+</div>
 
-    <div class="form-group">
-        <label asp-for="TreatmentSpecialist" class="control-label"></label>
-        <input asp-for="TreatmentSpecialist" class="form-control" />
-        <span asp-validation-for="TreatmentSpecialist" class="text-danger"></span>
-    </div>
+<style>
+    /* Container */
+    .container {
+        max-width: 600px;
+        margin: auto;
+    }
 
-    <div class="form-group">
-        <label asp-for="TreatmentPrice" class="control-label"></label>
-        <input asp-for="TreatmentPrice" class="form-control" type="number" step="0.01" />
-        <span asp-validation-for="TreatmentPrice" class="text-danger"></span>
-    </div>
+    /* Form Container */
+    .form-container {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
 
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+    /* Form Labels */
+    .form-label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #333;
+        text-align: left;
+    }
+
+    /* Form Inputs */
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+        }
+
+    /* Button Group */
+    .button-group {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* Primary Button */
+    .btn-primary {
+        background: #007bff;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        border: none;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+        .btn-primary:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+    /* Secondary Button */
+    .btn-secondary {
+        background: #6c757d;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: scale(1.05);
+        }
+</style>

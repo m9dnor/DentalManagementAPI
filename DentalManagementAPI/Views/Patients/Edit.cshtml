@@ -1,32 +1,94 @@
 ﻿@model DentalManagementAPI.Models.Patient
 
-<h2>Edit Patient</h2>
+<div class="container mt-4">
+    <div class="edit-card">
+        <h2 class="text-center">📝 Edit Patient</h2>
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="PatientID" /> <!-- Hidden field to store PatienttID -->
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="PatientID" />
 
-    <div class="form-group">
-        <label asp-for="PatientName" class="control-label"></label>
-        <input asp-for="PatientName" class="form-control" />
-        <span asp-validation-for="PatientName" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="DOB" class="control-label"></label>
-        <input asp-for="DOB" class="form-control" type="date" />
-        <span asp-validation-for="DOB" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="AppointmentDate" class="control-label"></label>
-        <input asp-for="AppointmentDate" class="form-control" type="date" />
-        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-    </div>
+            <div class="form-group">
+                <label asp-for="PatientName" class="form-label">Full Name</label>
+                <input asp-for="PatientName" class="form-control input-custom" placeholder="Enter patient's full name" />
+                <span asp-validation-for="PatientName" class="text-danger"></span>
+            </div>
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+            <div class="form-group">
+                <label asp-for="DOB" class="form-label">Date of Birth</label>
+                <input asp-for="DOB" class="form-control input-custom" type="date" />
+                <span asp-validation-for="DOB" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Email" class="form-label">Email Address</label>
+                <input asp-for="Email" class="form-control input-custom" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AppointmentDate" class="form-label">Appointment Date</label>
+                <input asp-for="AppointmentDate" class="form-control input-custom" type="date" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success save-btn">💾 Save</button>
+                <a asp-action="Index" class="btn btn-secondary cancel-btn">❌ Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Card styling */
+    .edit-card {
+        max-width: 500px;
+        background: #fff;
+        padding: 30px;
+        margin: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid #0072ff;
+    }
+
+    /* Form inputs */
+    .input-custom {
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        font-size: 1rem;
+        transition: border 0.3s;
+    }
+
+        .input-custom:focus {
+            border-color: #0072ff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(0, 114, 255, 0.2);
+        }
+
+    /* Buttons */
+    .save-btn {
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        color: white;
+        font-size: 1rem;
+        padding: 10px 25px;
+        border-radius: 8px;
+        transition: all 0.3s;
+    }
+
+        .save-btn:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+            transform: scale(1.05);
+        }
+
+    .cancel-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+</style>
