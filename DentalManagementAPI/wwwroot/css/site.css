@@ -107,34 +107,24 @@ h3 {
 
 .table {
     text-align: center;
+    width: 100%; /* Adjust this value to make it smaller */
+    margin: auto; /* Center the table */
+    font-size: 14px; /* Reduce text size */
 }
 
     .table th {
         background-color: #007bff;
         color: white;
+        padding: 5px; /* Reduce padding */
     }
 
 .table-hover tbody tr:hover {
     background-color: #f0f8ff;
 }
-
-
-footer {
-    background-color: #f8f9fa; /* Adjust as needed */
-    text-align: center;
-    padding: 10px 0;
-    width: 100%;
+img {
+    width: 70%; 
+    display: block;
+    margin: auto; /* Centers the image */
 }
 
 
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.content {
-    flex: 1; /* Pushes the footer down */
-}
-}
