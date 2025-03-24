@@ -1,34 +1,70 @@
-﻿<div class="container">
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-4">
     <!-- Hero Section -->
-    <div class="text-center p-5 bg-light">
-        <h1>Dental Management System</h1>
+    <div class="hero-section text-center text-white py-5">
+        <h1 class="display-4 fw-bold">Your Smile, Our Priority</h1>
+        <p class="lead">Providing exceptional dental care for a healthier smile.</p>
+        <a href="#" class="btn btn-primary btn-lg">Book an Appointment</a>
     </div>
 
-    <!-- Gallery -->
-    <div class="text-center mt-5">
-        <h2>Dental Gallery</h2>
-        <div class="row">
+    <!-- Dental Gallery -->
+    <section class="mt-5 text-center">
+        <h2 class="mb-4">Dental Gallery</h2>
+        <div class="row g-3">
             <div class="col-md-4">
-                <img src="images/clinic1.jpg" class="img-fluid rounded" alt="Clinic Image">
+                <img src="images/clinic1.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 1">
             </div>
             <div class="col-md-4">
-                <img src="images/clinic2.jpg" class="img-fluid rounded" alt="Clinic Image">
+                <img src="images/clinic2.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 2">
             </div>
             <div class="col-md-4">
-                <img src="" class="img-fluid rounded" alt="Clinic Image">
+                <img src="images/clinic3.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 3">
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Testimonials -->
-    <div class="text-center mt-5">
-        <h2>What Our Patients Say</h2>
-        <p>"The best dental care I have ever received! Highly recommended!" - ⭐⭐⭐⭐⭐</p>
-    </div>
+    <section class="mt-5">
+        <h2 class="text-center">What Our Patients Say</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-3 shadow-sm">
+                    <p class="fst-italic">"The best dental care I have ever received! Highly recommended!"</p>
+                    <h5 class="text-primary fw-bold text-end">⭐⭐⭐⭐⭐</h5>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Contact Us -->
-    <div class="text-center mt-5">
+    <!-- Contact Section -->
+    <section class="contact-section text-center mt-5 py-4 bg-primary text-white rounded">
         <h2>Contact Us</h2>
-        <p>1-300888-333 | dentalclinic@gmail.com</p>
-    </div>
+        <p class="mb-2">📞 1-300888-333 | 📧 dentalclinic@gmail.com</p>
+        <button class="btn btn-light btn-lg">Get in Touch</button>
+    </section>
 </div>
+
+<style>
+    .hero-section {
+        background: url('/images/hero-bg.jpg') no-repeat center center/cover;
+        padding: 100px 20px;
+        border-radius: 10px;
+    }
+
+    .gallery img {
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+    .contact-section {
+        border-radius: 10px;
+    }
+</style>
