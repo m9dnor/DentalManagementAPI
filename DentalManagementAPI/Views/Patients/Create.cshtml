@@ -1,30 +1,39 @@
 ﻿@model DentalManagementAPI.Models.Patient
 
-<h2>Create New Patient</h2>
-
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label asp-for="PatientName" class="control-label"></label>
-        <input asp-for="PatientName" class="form-control" />
-        <span asp-validation-for="PatientName" class="text-danger"></span>
+<div class="container mt-5">
+    <div class="card mx-auto shadow-lg p-4 bg-light rounded" style="max-width: 400px;">
+        <h3 class="text-center mb-4">
+            <i class="fas fa-tooth text-primary"></i> Create New Patient
+        </h3>
+        <form asp-action="Create" method="post">
+            <div class="mb-3">
+                <label asp-for="PatientName" class="form-label fw-bold">Patient Name</label>
+                <input asp-for="PatientName" class="form-control form-control-sm" placeholder="Enter patient name" />
+                <span asp-validation-for="PatientName" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="DOB" class="form-label fw-bold">Date of Birth</label>
+                <input asp-for="DOB" type="date" class="form-control form-control-sm" />
+                <span asp-validation-for="DOB" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-bold">Email</label>
+                <input asp-for="Email" type="email" class="form-control form-control-sm" placeholder="Enter email" />
+                <span asp-validation-for="Email" class="text-danger small"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AppointmentDate" class="form-label fw-bold">Appointment Date</label>
+                <input asp-for="AppointmentDate" type="date" class="form-control form-control-sm" />
+                <span asp-validation-for="AppointmentDate" class="text-danger small"></span>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary btn-sm">
+                    <i class="fas fa-check"></i> Create
+                </button>
+                <a asp-action="Index" class="btn btn-secondary btn-sm">
+                    <i class="fas fa-times"></i> Cancel
+                </a>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label asp-for="DOB" class="control-label"></label>
-        <input asp-for="DOB" class="form-control" type="date" />
-        <span asp-validation-for="DOB" class="text-danger"></span>
-        <span asp-validation-for="DOB" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="Email" class="control-label"></label>
-        <input asp-for="Email" class="form-control" />
-        <span asp-validation-for="Email" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="AppointmentDate" class="control-label"></label>
-        <input asp-for="AppointmentDate" class="form-control" type="date" />
-        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
+</div>
