@@ -2,50 +2,73 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="container mt-4">
-    <!-- Hero Section -->
-    <div class="hero-section text-center text-white py-5">
-        <h1 class="display-4 fw-bold">Your Smile, Our Priority</h1>
-        <p class="lead">Providing exceptional dental care for a healthier smile.</p>
-        <a href="#" class="btn btn-primary btn-lg">Book an Appointment</a>
+<div class="container-fluid">
+    <!-- Dashboard Header -->
+    <div class="row bg-primary text-white p-4 shadow-sm">
+        <div class="col d-flex align-items-center">
+            <h2 class="fw-bold mb-0">📊 Staff Dashboard</h2>
+        </div>
     </div>
 
-    <!-- Dental Gallery -->
-    <section class="mt-5 text-center">
-        <h2 class="mb-4">Dental Gallery</h2>
-        <div class="row g-3">
-            <div class="col-md-4">
-                <img src="images/clinic1.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 1">
-            </div>
-            <div class="col-md-4">
-                <img src="images/clinic2.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 2">
-            </div>
-            <div class="col-md-4">
-                <img src="images/clinic3.jpg" class="img-fluid rounded shadow-sm" alt="Clinic 3">
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="mt-5">
-        <h2 class="text-center">What Our Patients Say</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card p-3 shadow-sm">
-                    <p class="fst-italic">"The best dental care I have ever received! Highly recommended!"</p>
-                    <h5 class="text-primary fw-bold text-end">⭐⭐⭐⭐⭐</h5>
+    <!-- Dashboard Stats -->
+    <div class="row mt-4">
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Total Patients</h5>
+                    <h2>245</h2>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Appointments Today</h5>
+                    <h2>18</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Treatments</h5>
+                    <h2>7</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Staff Members</h5>
+                    <h2>12</h2>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact-section text-center mt-5 py-4 bg-primary text-white rounded">
-        <h2>Contact Us</h2>
-        <p class="mb-2">📞 1-300888-333 | 📧 dentalclinic@gmail.com</p>
-        <button class="btn btn-light btn-lg">Get in Touch</button>
-    </section>
+    <!-- Quick Actions -->
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Patients")" class="text-decoration-none">
+                <div class="card text-center bg-info text-white shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Manage Patients</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a href="@Url.Action("Index", "Treatments")" class="text-decoration-none">
+                <div class="card text-center bg-warning text-dark shadow">
+                    <div class="card-body">
+                        <h5 class="card-title">Treatment Records</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>
+
 
 <style>
     .hero-section {
