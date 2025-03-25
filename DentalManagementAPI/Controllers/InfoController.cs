@@ -9,6 +9,11 @@ namespace DentalManagementAPI.Controllers
             return View();
         }
 
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+
         public IActionResult AboutUs()
         {
             return View();

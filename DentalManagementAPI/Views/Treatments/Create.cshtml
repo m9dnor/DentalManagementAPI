@@ -6,19 +6,19 @@
         <form asp-action="Create" method="post">
             <div class="form-group">
                 <label asp-for="TreatmentName" class="form-label">Treatment Name</label>
-                <input asp-for="TreatmentName" class="form-control" placeholder="Enter treatment name..." />
+                <input asp-for="TreatmentName" class="form-control" placeholder="Enter treatment name..." required />
                 <span asp-validation-for="TreatmentName" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="TreatmentSpecialist" class="form-label">Specialist Name</label>
-                <input asp-for="TreatmentSpecialist" class="form-control" placeholder="Enter specialist's name..." />
+                <input asp-for="TreatmentSpecialist" class="form-control" placeholder="Enter specialist's name..." required />
                 <span asp-validation-for="TreatmentSpecialist" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="TreatmentPrice" class="form-label">Treatment Price ($)</label>
-                <input asp-for="TreatmentPrice" class="form-control" type="number" step="0.01" placeholder="Enter price..." />
+                <input asp-for="TreatmentPrice" class="form-control" type="number" step="0.01" placeholder="Enter price..." required />
                 <span asp-validation-for="TreatmentPrice" class="text-danger"></span>
             </div>
 
