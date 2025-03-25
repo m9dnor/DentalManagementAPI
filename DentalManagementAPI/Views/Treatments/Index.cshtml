@@ -4,8 +4,42 @@
     <h2 class="text-center">💉 Available Treatments</h2>
 
     <div class="row mt-4">
+        <form method="get" class="row mb-4">
+            <!-- Search by Treatment Name -->
+            <div class="col-md-4">
+                <input type="text" name="searchString" class="form-control" placeholder="Search Treatment Name..." value="@Context.Request.Query["searchString"]">
+            </div>
+
+            <!-- Filter by Specialist -->
+            <div class="col-md-3">
+                <select name="specialistFilter" class="form-select">
+                    <option value="">All Specialists</option>
+                    @foreach (var specialist in ViewBag.Specialists as List<string>)
+                    {
+                        <option value="@specialist" selected="@(Context.Request.Query["specialistFilter"] == specialist)">
+                            @specialist
+                        </option>
+                    }
+                </select>
+            </div>
+
+            <!-- Sorting Options -->
+            <div class="col-md-3">
+                <select name="sortOrder" class="form-select">
+                    <option value="">Sort By</option>
+                    <option value="price_asc" selected="@(Context.Request.Query["sortOrder"] == "price_asc")">Price: Low to High</option>
+                    <option value="price_desc" selected="@(Context.Request.Query["sortOrder"] == "price_desc")">Price: High to Low</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-primary w-100">🔍 Apply</button>
+            </div>
+        </form>
         @foreach (var treatment in Model)
         {
+
             <div class="col-md-4">
                 <div class="treatment-card">
                     <h4 class="treatment-title">🦷 @treatment.TreatmentName</h4>

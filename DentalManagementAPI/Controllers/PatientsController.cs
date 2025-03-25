@@ -19,10 +19,46 @@ namespace DentalManagementAPI.Controllers
 
         // GET: Patients
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string appointmentDate, string sortOrder)
         {
-            var patients = await _context.Patients.ToListAsync();
-            return View(patients); // Returns the list view of patients
+            var patients = _context.Patients.AsQueryable();
+
+            // 🔍 Search by Name or Email
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                patients = patients.Where(p => p.PatientName.Contains(searchString) || p.Email.Contains(searchString));
+            }
+
+            // 📅 Filter by Appointment Date
+            if (!string.IsNullOrEmpty(appointmentDate))
+            {
+                if (DateTime.TryParse(appointmentDate, out DateTime date))
+                {
+                    patients = patients.Where(p => p.AppointmentDate.Date == date);
+                }
+            }
+
+            // 🔄 Sorting Options
+            switch (sortOrder)
+            {
+                case "name_asc":
+                    patients = patients.OrderBy(p => p.PatientName);
+                    break;
+                case "name_desc":
+                    patients = patients.OrderByDescending(p => p.PatientName);
+                    break;
+                case "date_asc":
+                    patients = patients.OrderBy(p => p.AppointmentDate);
+                    break;
+                case "date_desc":
+                    patients = patients.OrderByDescending(p => p.AppointmentDate);
+                    break;
+                default:
+                    patients = patients.OrderBy(p => p.PatientName);
+                    break;
+            }
+
+            return View(await patients.ToListAsync());
         }
 
         // GET: Patients/Details/5

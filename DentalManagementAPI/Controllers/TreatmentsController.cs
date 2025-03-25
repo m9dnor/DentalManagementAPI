@@ -19,11 +19,46 @@ namespace DentalManagementAPI.Controllers
 
         // GET: Treatments
         [HttpGet]
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public async Task<IActionResult> Index(string searchString, string specialistFilter, string sortOrder)
         {
-            var treatments = await _context.Treatments.ToListAsync();
-            return View(treatments); // Returns the list view of treatments
+            var treatments = _context.Treatments.AsQueryable();
+
+            // 🔍 Search by Treatment Name
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                treatments = treatments.Where(t => t.TreatmentName.Contains(searchString));
+            }
+
+            // 🏥 Filter by Specialist
+            if (!string.IsNullOrEmpty(specialistFilter))
+            {
+                treatments = treatments.Where(t => t.TreatmentSpecialist == specialistFilter);
+            }
+
+            // 🔄 Sorting by Price
+            switch (sortOrder)
+            {
+                case "price_asc":
+                    treatments = treatments.OrderBy(t => t.TreatmentPrice);
+                    break;
+                case "price_desc":
+                    treatments = treatments.OrderByDescending(t => t.TreatmentPrice);
+                    break;
+                default:
+                    treatments = treatments.OrderBy(t => t.TreatmentName);
+                    break;
+            }
+
+            // Get distinct list of specialists for dropdown
+            ViewBag.Specialists = await _context.Treatments
+                .Select(t => t.TreatmentSpecialist)
+                .Distinct()
+                .ToListAsync();
+
+            return View(await treatments.ToListAsync());
         }
+
 
         // GET: Treatments/Details/5
         [HttpGet("Details/{id}")]
